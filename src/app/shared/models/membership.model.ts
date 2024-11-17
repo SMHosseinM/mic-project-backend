@@ -1,5 +1,3 @@
-import { DateTime } from 'luxon';
-
 export interface MembershipForm {
     firstName: string;
     lastName: string;

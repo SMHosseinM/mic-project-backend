@@ -1,7 +1,7 @@
 import express from 'express'
 import { getMembershipDetailsController, newMembershipController } from './controller/membershipController'
 import { checkSchema, ContextRunner } from 'express-validator';
-import { schema } from './validation/dto-validation';
+import { schema } from './validation/dtoValidation';
 
 const router = express.Router();
 

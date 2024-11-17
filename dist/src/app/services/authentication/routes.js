@@ -4,10 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const membershipController_1 = require("./controller/membershipController");
-const express_validator_1 = require("express-validator");
+const authController_1 = require("./controller/authController");
 const dtoValidation_1 = require("./validation/dtoValidation");
+const express_validator_1 = require("express-validator");
 const router = express_1.default.Router();
-router.get('/registration-number/:registrationNumber', membershipController_1.getMembershipDetailsController);
-router.post('/new-membership', (0, express_validator_1.checkSchema)(dtoValidation_1.schema, ['body']), membershipController_1.newMembershipController);
+router.post('/sign-up', (0, express_validator_1.checkSchema)(dtoValidation_1.schema, ['body']), authController_1.signUp);
 exports.default = router;

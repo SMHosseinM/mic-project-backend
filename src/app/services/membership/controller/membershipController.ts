@@ -1,5 +1,3 @@
-import { Err } from 'joi';
-import { newMembershipDtoValidation } from '../dto/membershipDto';
 import { getMembershipDetails, saveNewMembership }  from '../service/membershipService';
 import { Request, Response } from 'express';
 import { MembershipForm } from '../../../shared/models/membership.model';
