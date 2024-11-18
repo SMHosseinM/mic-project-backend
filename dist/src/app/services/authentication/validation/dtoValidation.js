@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.schema = void 0;
+exports.loginSchema = exports.schema = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 exports.schema = {
@@ -40,6 +40,22 @@ exports.schema = {
                     return Promise.reject('A system user with this email address already exists');
                 }
             })
+        }
+    },
+    password: {
+        trim: true,
+        notEmpty: {
+            errorMessage: 'Pasword is required'
+        }
+    },
+};
+exports.loginSchema = {
+    email: {
+        notEmpty: {
+            errorMessage: 'Email address is required'
+        },
+        isEmail: {
+            errorMessage: 'Email address is invalid'
         }
     },
     password: {

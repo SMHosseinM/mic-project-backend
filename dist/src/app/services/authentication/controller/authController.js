@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.signUp = void 0;
+exports.signIn = exports.signUp = void 0;
 const express_validator_1 = require("express-validator");
 const singUpDtoToPrisma_1 = require("../mapper/singUpDtoToPrisma");
 const authService_1 = require("../service/authService");
@@ -21,7 +21,22 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     const dto = (0, express_validator_1.matchedData)(req);
     const body = (0, singUpDtoToPrisma_1.dtoToPrisma)(dto);
-    yield (0, authService_1.registerSystemUser)(body);
+    yield (0, authService_1.signupSystemUser)(body);
     res.status(200).end();
 });
 exports.signUp = signUp;
+const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = (0, express_validator_1.validationResult)(req);
+    if (!result.isEmpty()) {
+        res.status(400).json({ message: result.array()[0].msg }).end();
+        return;
+    }
+    const dto = (0, express_validator_1.matchedData)(req);
+    const login = yield (0, authService_1.loginSystemUser)(dto);
+    if (login.err) {
+        res.status(400).json({ message: login.err }).end();
+        return;
+    }
+    res.cookie('jwt', login.token).status(200).end();
+});
+exports.signIn = signIn;

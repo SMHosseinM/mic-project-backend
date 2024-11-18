@@ -40,3 +40,20 @@ export const schema = {
         }
     },
 }
+
+export const loginSchema = {
+    email: {
+        notEmpty: {
+            errorMessage: 'Email address is required'
+        },
+        isEmail: {
+            errorMessage: 'Email address is invalid'
+        }
+    },
+    password: {
+        trim: true,
+        notEmpty: {
+            errorMessage: 'Pasword is required'
+        }
+    },
+}
