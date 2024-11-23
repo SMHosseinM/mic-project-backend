@@ -1,5 +1,4 @@
-import { Prisma, PrismaClient } from '@prisma/client'
-import { isDate } from 'util/types';
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
