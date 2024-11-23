@@ -7,3 +7,11 @@ export const findUserByEmail = async (email: string) => {
         where: { email }
     })
 }
+
+export const findUserByEmailIfExistAndVerified = async (email: string) => {
+    const user = await findUserByEmail(email);
+    if (!user || !user.verified) {
+        return null;
+    }
+    return user;
+}

@@ -36,5 +36,5 @@ export const signIn = async (req: Request, res: Response) => {
         return
     }
 
-    res.cookie('jwt', login.token).status(200).end();
+    res.cookie('jwt', login.token, {httpOnly: true, secure: true, maxAge: (60 * 60 * 24 * 30) * 1000}).status(200).json();
 }

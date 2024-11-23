@@ -37,6 +37,6 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(400).json({ message: login.err }).end();
         return;
     }
-    res.cookie('jwt', login.token).status(200).end();
+    res.cookie('jwt', login.token, { httpOnly: true, secure: true, maxAge: (60 * 60 * 24 * 30) * 1000 }).status(200).json();
 });
 exports.signIn = signIn;
