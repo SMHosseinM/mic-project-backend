@@ -19,7 +19,6 @@ app.use(cors(corsOrigins));
 
 app.use('/', authRoutes);
 app.use('/membership', membershipRoutes);
-app.use('/dashboard/member', memberRoutes); 
 app.use('/dashboard',   dashboardRoutes);
 
 app.listen(config.port, () => {
