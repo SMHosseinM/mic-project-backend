@@ -29,7 +29,7 @@ export const newMembershipController = async (req: Request, res: Response): Prom
         return
     }
     const dto: MembershipForm = matchedData(req)
-    const body: Prisma.membershipCreateInput = dtoToPrisma(dto)
+    const body: Prisma.memberCreateInput = dtoToPrisma(dto)
         
     await saveNewMembership(body)
 

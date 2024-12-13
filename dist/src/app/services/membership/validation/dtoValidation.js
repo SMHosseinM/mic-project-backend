@@ -33,7 +33,7 @@ exports.schema = {
         },
         custom: {
             options: (email) => __awaiter(void 0, void 0, void 0, function* () {
-                const count = yield prisma.membership.count({
+                const count = yield prisma.member.count({
                     where: { email: email }
                 });
                 if (count) {
@@ -61,7 +61,7 @@ exports.schema = {
         },
         custom: {
             options: (registrationNumber) => __awaiter(void 0, void 0, void 0, function* () {
-                const count = yield prisma.membership.count({
+                const count = yield prisma.member.count({
                     where: { registration_number: registrationNumber }
                 });
                 if (count) {
@@ -79,7 +79,7 @@ exports.schema = {
         },
         custom: {
             options: (phoneNumber) => __awaiter(void 0, void 0, void 0, function* () {
-                const count = yield prisma.membership.count({
+                const count = yield prisma.member.count({
                     where: { phone_number: phoneNumber }
                 });
                 if (count) {

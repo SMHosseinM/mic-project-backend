@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 
 export const getMembershipDetails = async (registrationNumber: string) => { 
     try {
-        const member = await prisma.membership.findUnique({
+        const member = await prisma.member.findUnique({
             where: {
                 registration_number: registrationNumber
             }
@@ -19,6 +19,6 @@ export const getMembershipDetails = async (registrationNumber: string) => {
     }
 }
 
-export const saveNewMembership = async (form: Prisma.membershipCreateInput) => {
-    await prisma.membership.create({data: form})
+export const saveNewMembership = async (form: Prisma.memberCreateInput) => {
+    await prisma.member.create({data: form})
 } 

@@ -2,6 +2,7 @@ import config  from './config';
 import express from 'express';
 import membershipRoutes from './src/app/services/membership/routes';
 import dashboardRoutes from './src/app/services/dashboard/routes';
+import memberRoutes from './src/app/services/dashboard/member/routes';
 import authRoutes from './src/app/services/authentication/routes';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -18,6 +19,7 @@ app.use(cors(corsOrigins));
 
 app.use('/', authRoutes);
 app.use('/membership', membershipRoutes);
+app.use('/dashboard/member', memberRoutes); 
 app.use('/dashboard',   dashboardRoutes);
 
 app.listen(config.port, () => {

@@ -23,7 +23,7 @@ export const schema = {
         },
         custom: {
             options: async (email: string) => {
-                const count: number = await prisma.membership.count({
+                const count: number = await prisma.member.count({
                     where: { email: email}
                 })
                 if (count) {
@@ -51,7 +51,7 @@ export const schema = {
         },
         custom: {
             options: async (registrationNumber: string) => {
-                const count: number = await prisma.membership.count({
+                const count: number = await prisma.member.count({
                     where: { registration_number: registrationNumber}
                 })
                 if (count) {
@@ -69,7 +69,7 @@ export const schema = {
         },
         custom: {
             options: async (phoneNumber: string) => {
-                const count: number = await prisma.membership.count({
+                const count: number = await prisma.member.count({
                     where: { phone_number: phoneNumber}
                 })
                 if (count) {

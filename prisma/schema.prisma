@@ -14,7 +14,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model membership {
+model member {
   id                    String   @id @default(uuid())
   first_name            String
   last_name             String

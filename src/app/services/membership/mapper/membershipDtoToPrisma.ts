@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { MembershipForm } from "../../../shared/models/membership.model";
 import { DateTime } from "luxon";
 
-export const dtoToPrisma = (dto: MembershipForm): Prisma.membershipCreateInput => ({
+export const dtoToPrisma = (dto: MembershipForm): Prisma.memberCreateInput => ({
     first_name: dto.firstName,
     last_name: dto.lastName,
     email: dto.email,
